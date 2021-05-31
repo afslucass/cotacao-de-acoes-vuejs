@@ -1,26 +1,39 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <barra-de-pesquisa v-on:EnviarRequestDeAcao='this.acao = $event' />
+    <container-acoes v-bind:acaoParaEnviarRequest='acao' />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BarraDePesquisa from './components/BarraDePesquisa.vue'
+import ContainerAcoes from './components/ContainerAcoes.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    BarraDePesquisa,
+    ContainerAcoes
+  },
+  data() {
+    return {
+      acao: ''
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+  html, body {
+    margin: 0px;
+    padding: 0px;
+
+    box-sizing: border-box;
+    
+    background-color: hsl(0, 0%, 93%);
+
+    font-family: 'Roboto Slab', serif;
+  }
 </style>
